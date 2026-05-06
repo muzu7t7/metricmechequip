@@ -1,0 +1,61 @@
+import React from 'react';
+import './Footer.css';
+import logo from '../assets/logo.svg';
+import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
+
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-grid">
+          <div className="footer-about">
+            <div className="footer-logo">
+              <img src={logo} alt="Metric Mechanical Logo" className="footer-logo-img" />
+              <div>
+                <h3>METRIC <span className="text-primary">MECHANICAL</span></h3>
+                <p className="footer-tagline">Equipment Spare Parts Trading LLC</p>
+              </div>
+            </div>
+            <p>Your trusted supplier of premium mechanical equipment spare parts, delivering quality and reliability across the UAE and beyond.</p>
+          </div>
+
+          <div className="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home"><ArrowRight size={14}/> Home</a></li>
+              <li><a href="#about"><ArrowRight size={14}/> About Us</a></li>
+              <li><a href="#services"><ArrowRight size={14}/> Services</a></li>
+              <li><a href="#contact"><ArrowRight size={14}/> Contact</a></li>
+            </ul>
+          </div>
+
+          <div className="footer-services">
+            <h4>Our Services</h4>
+            <ul>
+              <li><ArrowRight size={14}/> Industrial Machinery Parts</li>
+              <li><ArrowRight size={14}/> Hydraulic Systems</li>
+              <li><ArrowRight size={14}/> Heavy Equipment Spares</li>
+              <li><ArrowRight size={14}/> Custom Component Sourcing</li>
+            </ul>
+          </div>
+
+          <div className="footer-contact">
+            <h4>Contact Details</h4>
+            <ul>
+              <li><MapPin size={18} className="text-primary" /> Al Jurf Industrial 2, Ajman, UAE.</li>
+              <li><Phone size={18} className="text-primary" /> +971 58 901 3804</li>
+              <li><Mail size={18} className="text-primary" /> mechmetric@gmail.com</li>
+              <li><Clock size={18} className="text-primary" /> Mon – Fri: 8 AM – 8 PM<br/>Sun: 8 AM - 1 PM</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} Metric Mechanical Equipment Spare Parts Trading LLC. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
