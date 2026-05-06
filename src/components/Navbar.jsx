@@ -106,7 +106,15 @@ const Navbar = () => {
               )}
             </li>
           ))}
-          <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact', false)}>Contact Us</a></li>
+          <li>
+            <a 
+              href="#contact" 
+              onClick={(e) => handleNavClick(e, '#contact', false)} 
+              className="btn btn-sm mobile-contact-btn"
+            >
+              Contact Us
+            </a>
+          </li>
         </ul>
       </div>
     </header>
