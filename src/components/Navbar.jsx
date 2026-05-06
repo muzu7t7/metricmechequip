@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import './Navbar.css';
 
@@ -8,6 +8,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const navbarRef = useRef(null);
 
   useEffect(() => {
@@ -19,23 +20,27 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
-        setMobileMenuOpen(false);
-      }
-    };
-
-    if (mobileMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
+  const handleNavClick = (e, path, isPage) => {
+    if (isPage) {
+      setMobileMenuOpen(false);
+      return;
     }
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [mobileMenuOpen]);
+    e.preventDefault();
+    const id = path.replace('#', '');
+    
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home and pass the scroll target
+      navigate('/', { state: { scrollTo: id } });
+    } else {
+      // If already on home page, just scroll
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    setMobileMenuOpen(false);
+  };
 
   const navLinks = [
     { name: 'Home', path: '#home' },
@@ -49,7 +54,7 @@ const Navbar = () => {
       <div className="nav-main">
         <div className="container nav-inner">
           <div className="logo">
-            <Link to="/">
+            <Link to="/" onClick={(e) => handleNavClick(e, '#home', false)}>
               <div className="logo-brand">
                 <img src={logo} alt="Metric Mechanical Logo" className="logo-img" />
                 <div className="logo-text">
@@ -69,11 +74,11 @@ const Navbar = () => {
                       {link.name}
                     </Link>
                   ) : (
-                    <a href={link.path}>{link.name}</a>
+                    <a href={link.path} onClick={(e) => handleNavClick(e, link.path, false)}>{link.name}</a>
                   )}
                 </li>
               ))}
-              <li><a href="#contact" className="btn btn-sm">Contact Us</a></li>
+              <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact', false)} className="btn btn-sm">Contact Us</a></li>
             </ul>
           </nav>
           
@@ -96,13 +101,13 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ) : (
-                <a href={link.path} onClick={() => setMobileMenuOpen(false)}>
+                <a href={link.path} onClick={(e) => handleNavClick(e, link.path, false)}>
                   {link.name}
                 </a>
               )}
             </li>
           ))}
-          <li><a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</a></li>
+          <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact', false)}>Contact Us</a></li>
         </ul>
       </div>
     </header>
