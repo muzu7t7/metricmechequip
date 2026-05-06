@@ -1,3 +1,4 @@
+# Automated deployment for MetricMechEquip
 name: Deploy to GitHub Pages
 
 on:

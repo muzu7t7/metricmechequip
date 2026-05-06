@@ -39,8 +39,10 @@ function HomePage() {
 }
 
 function App() {
+  const basename = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router basename={basename}>
       <MechanicalBackground />
       <Navbar />
       <Routes>
