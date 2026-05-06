@@ -2,11 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import './Sections.css';
+import heroBg from '../assets/hero-bg.jpg';
 
 const Hero = () => {
   return (
     <section id="home" className="hero-section">
-      <div className="hero-bg-layer"></div>
+      <div className="hero-bg-layer" style={{ backgroundImage: `url(${heroBg})` }}></div>
       <div className="hero-overlay"></div>
       
       <div className="container hero-content">

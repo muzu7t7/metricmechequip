@@ -38,9 +38,9 @@ const Navbar = () => {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { name: 'Home', path: '/#home' },
-    { name: 'About', path: '/#about' },
-    { name: 'Services', path: '/#services' },
+    { name: 'Home', path: '#home' },
+    { name: 'About', path: '#about' },
+    { name: 'Services', path: '#services' },
     { name: 'Products', path: '/products', isPage: true },
   ];
 
@@ -73,7 +73,7 @@ const Navbar = () => {
                   )}
                 </li>
               ))}
-              <li><a href="/#contact" className="btn btn-sm">Contact Us</a></li>
+              <li><a href="#contact" className="btn btn-sm">Contact Us</a></li>
             </ul>
           </nav>
           
@@ -102,7 +102,7 @@ const Navbar = () => {
               )}
             </li>
           ))}
-          <li><a href="/#contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</a></li>
+          <li><a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</a></li>
         </ul>
       </div>
     </header>
