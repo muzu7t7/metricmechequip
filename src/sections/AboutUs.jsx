@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 import './Sections.css';
+import aboutUsImg from '../assets/about-us.png';
 
 const AboutUs = () => {
   const points = [
@@ -23,7 +24,7 @@ const AboutUs = () => {
             className="about-image-container"
           >
             <div className="about-image">
-              <img src="/about-us.png" alt="Industrial Manufacturing" />
+              <img src={aboutUsImg} alt="Industrial Manufacturing" />
             </div>
           </motion.div>
           
