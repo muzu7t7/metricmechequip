@@ -1,0 +1,22 @@
+[
+  { "name": "Hoses", "category": "Hoses & Tubes", "image": "" },
+  { "name": "Hose Fittings", "category": "Fittings & Couplings", "image": "" },
+  { "name": "Couplings", "category": "Fittings & Couplings", "image": "" },
+  { "name": "Adaptors", "category": "Fittings & Couplings", "image": "" },
+  { "name": "Pressure Gauges & Test Point Hoses", "category": "Valves & Gauges", "image": "" },
+  { "name": "SS Expansion Bellow", "category": "Maintenance", "image": "" },
+  { "name": "Tubes, Tube Fittings & Clamps", "category": "Hoses & Tubes", "image": "" },
+  { "name": "Pneumatics Tube & Fittings", "category": "Hoses & Tubes", "image": "" },
+  { "name": "Hose Protectors", "category": "Maintenance", "image": "" },
+  { "name": "Oil & Lubricants", "category": "Maintenance", "image": "" },
+  { "name": "Hose Clips & Clamps", "category": "Fittings & Couplings", "image": "" },
+  { "name": "SAE Flange Block", "category": "Fittings & Couplings", "image": "" },
+  { "name": "Quick Release Coupling", "category": "Fittings & Couplings", "image": "" },
+  { "name": "Valves", "category": "Valves & Gauges", "image": "" },
+  { "name": "Belts", "category": "Maintenance", "image": "" },
+  { "name": "GI, MMS & SS Fittings", "category": "Fittings & Couplings", "image": "" },
+  { "name": "SS Flexible Hoses & Braids", "category": "Hoses & Tubes", "image": "" },
+  { "name": "Brass Fittings", "category": "Fittings & Couplings", "image": "" },
+  { "name": "Injector Pipes", "category": "Maintenance", "image": "" },
+  { "name": "Composite Hoses & Hose Assemblies", "category": "Hoses & Tubes", "image": "" }
+]

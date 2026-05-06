@@ -1,41 +1,29 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HardHat, AirVent, Link, PackageSearch } from 'lucide-react';
-import BearingIcon from '../components/icons/BearingIcon';
-import HydraulicIcon from '../components/icons/HydraulicIcon';
+import { ShieldCheck, Clock, Search, Settings, Truck, Headphones } from 'lucide-react';
 import './Sections.css';
 
 const Services = () => {
   const servicesData = [
     {
-      icon: <HydraulicIcon size={40} />,
-      title: "Hydraulic Systems",
-      desc: "Complete hydraulic solutions, pumps, valves, and high-pressure hose assemblies."
+      icon: <Headphones size={40} />,
+      title: "Technical Support",
+      desc: "Expert engineering advice to help you select the precise components for your machinery and systems."
     },
     {
-      icon: <BearingIcon size={40} />,
-      title: "Precision Bearings",
-      desc: "Standard and custom bearings ensuring minimal friction and extended machine life."
+      icon: <Truck size={40} />,
+      title: "Rapid Delivery",
+      desc: "Strategic logistics ensuring fast and reliable delivery across the UAE to minimize your downtime."
     },
     {
-      icon: <HardHat size={40} />,
-      title: "Heavy Equipment Spares",
-      desc: "Earthmoving and construction equipment parts ready for immediate dispatch."
+      icon: <Search size={40} />,
+      title: "Global Sourcing",
+      desc: "If it's hard to find, we'll track it down. Our global network connects you to rare and specialized parts."
     },
     {
-      icon: <AirVent size={40} />,
-      title: "Pneumatic Components",
-      desc: "Air cylinders, actuators, and pneumatic controllers for automated systems."
-    },
-    {
-      icon: <Link size={40} />,
-      title: "Transmission Belts",
-      desc: "Industrial-grade V-belts, timing belts, and robust power transmission products."
-    },
-    {
-      icon: <PackageSearch size={40} />,
-      title: "Custom Sourcing",
-      desc: "Hard-to-find components tracked down and delivered globally."
+      icon: <ShieldCheck size={40} />,
+      title: "Quality Assurance",
+      desc: "We supply only genuine, certified equipment from trusted manufacturers to ensure long-term reliability."
     }
   ];
 

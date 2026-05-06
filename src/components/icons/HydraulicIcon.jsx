@@ -12,35 +12,38 @@ const HydraulicIcon = ({ size = 24, ...props }) => (
     width={size}
     height={size}
     viewBox="0 0 24 24"
-    fill="currentColor"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     {...props}
   >
-    {/* Left Flange & Pipe Connection */}
-    <rect x="1" y="10" width="1.5" height="8" rx="0.2" />
-    <rect x="2.5" y="12.5" width="4" height="3" />
+    {/* Outer ring of the valve body */}
+    <circle cx="12" cy="14" r="7" />
+    
+    {/* Inner ring / bore */}
+    <circle cx="12" cy="14" r="3" />
 
-    {/* Right Flange & Pipe Connection */}
-    <rect x="21.5" y="10" width="1.5" height="8" rx="0.2" />
-    <rect x="17.5" y="12.5" width="4" height="3" />
+    {/* Flanges */}
+    <rect x="2" y="10" width="2" height="8" rx="0.5" fill="currentColor" stroke="none" />
+    <rect x="20" y="10" width="2" height="8" rx="0.5" fill="currentColor" stroke="none" />
+    
+    {/* Pipe connections */}
+    <path d="M4 14h1.5" />
+    <path d="M18.5 14H20" />
 
-    {/* Valve Body (Outer ring with center bore) */}
-    <path fillRule="evenodd" d="M12 7a7 7 0 100 14 7 7 0 000-14zm0 3a4 4 0 110 8 4 4 0 010-8z" />
-
-    {/* Bolt patterns (punched holes) */}
-    <circle cx="12" cy="8.5" r="0.6" fill="white" />
-    <circle cx="15.2" cy="10" r="0.6" fill="white" />
-    <circle cx="16.5" cy="14" r="0.6" fill="white" />
-    <circle cx="14" cy="16.8" r="0.6" fill="white" />
-    <circle cx="10" cy="16.8" r="0.6" fill="white" />
-    <circle cx="7.5" cy="14" r="0.6" fill="white" />
-    <circle cx="8.8" cy="10" r="0.6" fill="white" />
-
-    {/* Stem Assembly */}
-    <rect x="10.2" y="7" width="3.6" height="2" />
-    <rect x="11.2" y="4.5" width="1.6" height="3" />
-
-    {/* Top T-Handle */}
-    <rect x="6" y="3.5" width="12" height="1.5" rx="0.3" />
+    {/* Stem */}
+    <path d="M12 7V4" />
+    
+    {/* Handwheel / Handle */}
+    <rect x="7" y="3" width="10" height="1.5" rx="0.75" fill="currentColor" stroke="none" />
+    
+    {/* Mounting bolts (stylized points) */}
+    <circle cx="12" cy="10.5" r="0.5" fill="currentColor" stroke="none" />
+    <circle cx="15.5" cy="14" r="0.5" fill="currentColor" stroke="none" />
+    <circle cx="12" cy="17.5" r="0.5" fill="currentColor" stroke="none" />
+    <circle cx="8.5" cy="14" r="0.5" fill="currentColor" stroke="none" />
   </svg>
 );
 

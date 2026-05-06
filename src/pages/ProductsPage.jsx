@@ -1,31 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Info, Search, Filter, ChevronDown } from 'lucide-react';
+import { ArrowLeft, Info, Search, Filter, ChevronDown, Cog } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import './ProductsPage.css';
-
-const productsData = [
-  { name: "Hoses", category: "Hoses & Tubes" },
-  { name: "Hose Fittings", category: "Fittings & Couplings" },
-  { name: "Couplings", category: "Fittings & Couplings" },
-  { name: "Adaptors", category: "Fittings & Couplings" },
-  { name: "Pressure Gauges & Test Point Hoses", category: "Valves & Gauges" },
-  { name: "SS Expansion Bellow", category: "Maintenance" },
-  { name: "Tubes, Tube Fittings & Clamps", category: "Hoses & Tubes" },
-  { name: "Pneumatics Tube & Fittings", category: "Hoses & Tubes" },
-  { name: "Hose Protectors", category: "Maintenance" },
-  { name: "Oil & Lubricants", category: "Maintenance" },
-  { name: "Hose Clips & Clamps", category: "Fittings & Couplings" },
-  { name: "SAE Flange Block", category: "Fittings & Couplings" },
-  { name: "Quick Release Coupling", category: "Fittings & Couplings" },
-  { name: "Valves", category: "Valves & Gauges" },
-  { name: "Belts", category: "Maintenance" },
-  { name: "GI, MMS & SS Fittings", category: "Fittings & Couplings" },
-  { name: "SS Flexible Hoses & Braids", category: "Hoses & Tubes" },
-  { name: "Brass Fittings", category: "Fittings & Couplings" },
-  { name: "Injector Pipes", category: "Maintenance" },
-  { name: "Composite Hoses & Hose Assemblies", category: "Hoses & Tubes" }
-];
+import productsData from '../data/products.json';
 
 const categories = ["All", "Hoses & Tubes", "Fittings & Couplings", "Valves & Gauges", "Maintenance"];
 
@@ -43,14 +21,6 @@ const ProductsPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const imageUrls = [
-    "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1534653299134-96a171b61581?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1542013936693-884638324202?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
-  ];
-
   const filteredProducts = useMemo(() => {
     let result = productsData.filter(p => {
       const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -67,6 +37,12 @@ const ProductsPage = () => {
     return result;
   }, [searchTerm, selectedCategory, sortBy]);
 
+  const [imageErrors, setImageErrors] = useState({});
+
+  const handleImageError = (id) => {
+    setImageErrors(prev => ({ ...prev, [id]: true }));
+  };
+
   return (
     <div className="products-page">
       <div className="products-hero">
@@ -76,8 +52,8 @@ const ProductsPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="hero-content"
           >
-            <h1>Industrial <span className="text-primary">Catalog</span></h1>
-            <p>Explore our extensive range of high-performance mechanical spare parts and industrial equipment.</p>
+            <h1>Our <span className="text-primary">Products</span></h1>
+            <p>As a leading manufacturer and supplier, we provide a comprehensive range of high-precision spare parts engineered to meet the highest international standards.</p>
           </motion.div>
         </div>
       </div>
@@ -126,22 +102,39 @@ const ProductsPage = () => {
 
         <div className="products-grid-full">
           <AnimatePresence mode="popLayout">
-            {filteredProducts.map((product, i) => (
-              <motion.div 
-                layout
-                key={product.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="full-product-card"
-              >
-                <div className="product-img-wrapper">
-                  <img src={imageUrls[i % 5]} alt={product.name} />
-                  <div className="product-overlay">
-                    <button onClick={goToContact} className="btn btn-sm">Inquire Now</button>
+            {filteredProducts.map((product, i) => {
+              // Handle relative paths for local images
+              const imgSrc = product.image 
+                ? (product.image.startsWith('http') ? product.image : `${import.meta.env.BASE_URL}${product.image}`)
+                : null;
+
+              return (
+                <motion.div 
+                  layout
+                  key={product.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  className="full-product-card"
+                >
+                  <div className="product-img-wrapper">
+                    {imageErrors[product.name] || !imgSrc ? (
+                      <div className="image-placeholder-icon">
+                        <Cog size={48} className="spin-slow" />
+                        <span>Industrial Component</span>
+                      </div>
+                    ) : (
+                      <img 
+                        src={imgSrc} 
+                        alt={product.name} 
+                        onError={() => handleImageError(product.name)}
+                      />
+                    )}
+                    <div className="product-overlay">
+                      <button onClick={goToContact} className="btn btn-sm">Inquire Now</button>
+                    </div>
                   </div>
-                </div>
                 <div className="product-info">
                   <span className="category-tag">{product.category}</span>
                   <h3>{product.name}</h3>
@@ -151,8 +144,9 @@ const ProductsPage = () => {
                     <button onClick={goToContact} className="details-btn"><Info size={16} /></button>
                   </div>
                 </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </div>
         

@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CircleDot, Droplets, Link, AirVent, Filter, Nut } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { CircleDot, Droplets, Link as LinkIcon, AirVent, Filter, Nut } from 'lucide-react';
 import BearingIcon from '../components/icons/BearingIcon';
+import HydraulicIcon from '../components/icons/HydraulicIcon';
+import BoltIcon from '../components/icons/BoltIcon';
 import './Sections.css';
 
 const Products = () => {
@@ -14,12 +17,12 @@ const Products = () => {
     {
       title: "Hydraulic Seals",
       desc: "Premium seals and O-rings for high-pressure hydraulic systems.",
-      icon: <Droplets size={32} />
+      icon: <HydraulicIcon size={32} />
     },
     {
       title: "Power Transmission",
       desc: "Belts, chains, and sprockets for efficient machinery operation.",
-      icon: <Link size={32} />
+      icon: <LinkIcon size={32} />
     },
     {
       title: "Pneumatic Valves",
@@ -33,18 +36,17 @@ const Products = () => {
     },
     {
       title: "Specialized Bolts",
-      desc: "High-tensile fasteners and specialized hardware for heavy machinery.",
-      icon: <Nut size={32} />
+      desc: "High-tensile fasteners and specialized bolting for critical structures.",
+      icon: <BoltIcon size={32} />
     }
   ];
 
   return (
     <section id="products" className="section products-section">
       <div className="container">
-        <h4 className="overline text-center">Catalog</h4>
         <h2 className="section-title text-center">Our Core Products</h2>
         <p className="section-subtitle text-center">
-          We stock a comprehensive range of genuine spare parts from leading global manufacturers.
+          As a leading manufacturer and supplier, we provide a comprehensive range of high-precision spare parts engineered to meet the highest international standards.
         </p>
 
         <div className="products-grid">
@@ -62,7 +64,7 @@ const Products = () => {
               </div>
               <h3>{product.title}</h3>
               <p>{product.desc}</p>
-              <a href="#contact" className="learn-more">Inquire Now</a>
+              <Link to="/products" className="learn-more">View Category</Link>
             </motion.div>
           ))}
         </div>

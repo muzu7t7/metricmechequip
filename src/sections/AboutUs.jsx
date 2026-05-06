@@ -6,10 +6,9 @@ import aboutUsImg from '../assets/about-us.png';
 
 const AboutUs = () => {
   const points = [
-    "Quality You Can Trust",
-    "Expert Support",
-    "Custom Solutions",
-    "Fast & Reliable Delivery"
+    "Provide top-grade products that meet international standards",
+    "Deliver exceptional customer service",
+    "Offer flexible, tailored solutions for any hydraulic requirement"
   ];
 
   return (
