@@ -1,9 +1,27 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Footer.css';
 import logo from '../assets/logo.png';
 import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
 
 const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (e, path) => {
+    e.preventDefault();
+    const id = path.replace('#', '');
+    
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: id } });
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="container">
@@ -22,10 +40,10 @@ const Footer = () => {
           <div className="footer-links">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="#home"><ArrowRight size={14}/> Home</a></li>
-              <li><a href="#about"><ArrowRight size={14}/> About Us</a></li>
-              <li><a href="#services"><ArrowRight size={14}/> Services</a></li>
-              <li><a href="#contact"><ArrowRight size={14}/> Contact</a></li>
+              <li><a href="#home" onClick={(e) => handleNavClick(e, '#home')}><ArrowRight size={14}/> Home</a></li>
+              <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')}><ArrowRight size={14}/> About Us</a></li>
+              <li><a href="#services" onClick={(e) => handleNavClick(e, '#services')}><ArrowRight size={14}/> Services</a></li>
+              <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}><ArrowRight size={14}/> Contact</a></li>
             </ul>
           </div>
 
