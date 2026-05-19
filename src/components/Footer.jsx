@@ -36,6 +36,7 @@ const Footer = () => {
               <li><ArrowRight size={14}/> Hydraulic Systems</li>
               <li><ArrowRight size={14}/> Heavy Equipment Spares</li>
               <li><ArrowRight size={14}/> Custom Component Sourcing</li>
+              <li><ArrowRight size={14}/> 24/7 Onsite Service & Repairs</li>
             </ul>
           </div>
 
