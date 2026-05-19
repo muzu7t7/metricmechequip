@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap');
 
 :root {
-  --primary: #CC0000; /* Deep strong red matching royalhydraulics style */
-  --primary-hover: #AA0000;
+  --primary: #9E2A2B; /* Deep red matching the new logo */
+  --primary-hover: #7E2122;
   --secondary: #0A0A0A; /* Premium dark black for accents */
   --accent: #F5F5F5;
   --bg-color: #FFFFFF;
