@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
 
 const Footer = () => {
@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="footer-about">
             <div className="footer-logo">
               <img src={logo} alt="Metric Mechanical Logo" className="footer-logo-img" />
-              <div>
+              <div className="footer-logo-text">
                 <h3>METRIC <span className="text-primary">MECHANICAL</span></h3>
                 <p className="footer-tagline">Equipment Spare Parts Trading LLC</p>
               </div>

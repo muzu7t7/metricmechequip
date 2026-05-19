@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './sections/Hero';
 import AboutUs from './sections/AboutUs';
+import Services from './sections/Services';
 import Products from './sections/Products';
 import Contact from './sections/Contact';
 
@@ -32,6 +33,7 @@ function HomePage() {
       <MainPageParticles />
       <Hero />
       <AboutUs />
+      <Services />
       <Products />
       <Contact />
     </main>

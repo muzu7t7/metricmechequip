@@ -58,9 +58,25 @@
 }
 
 .footer-logo-img {
-  height: 52px;
+  height: 60px;
   width: auto;
   flex-shrink: 0;
+  background-color: #ffffff;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.footer-logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-logo-text h3 {
+  margin-bottom: 2px !important;
+  line-height: 1;
 }
 
 .footer-tagline {
@@ -68,7 +84,7 @@
   color: #999;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: 2px;
+  margin-top: 0;
   line-height: 1 !important;
 }
 

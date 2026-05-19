@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Clock, Search, Settings, Truck, Headphones } from 'lucide-react';
+import { ShieldCheck, Clock, Search, Settings, Truck, Headphones, Wrench } from 'lucide-react';
+import onsiteVan from '../assets/onsite-van-v3.png';
 import './Sections.css';
 
 const Services = () => {
@@ -47,11 +48,37 @@ const Services = () => {
         <p className="section-subtitle">Comprehensive industrial solutions designed to keep your operations running at peak performance.</p>
         
         <motion.div 
+          className="onsite-highlight"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="onsite-content">
+            <div className="onsite-icon-wrapper">
+              <Wrench size={32} />
+            </div>
+            <h3>Onsite Service & Repairs</h3>
+            <p>Our dedicated mobile service teams are equipped to handle critical repairs and maintenance directly at your facility. We bring the expertise to you, minimizing downtime and ensuring your operations get back online quickly and safely.</p>
+            <ul className="onsite-features">
+              <li>✓ 24/7 Emergency Dispatch</li>
+              <li>✓ Fully Equipped Mobile Units</li>
+              <li>✓ Certified Expert Technicians</li>
+            </ul>
+          </div>
+          <div className="onsite-image-wrapper">
+            <img src={onsiteVan} alt="Metric Mech Equip Onsite Service Van" className="onsite-image" />
+            <div className="onsite-image-overlay"></div>
+          </div>
+        </motion.div>
+
+        <motion.div 
           className="services-grid"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
+          style={{ marginTop: '80px' }}
         >
           {servicesData.map((service, index) => (
             <motion.div key={index} className="service-card" variants={itemVariants}>
