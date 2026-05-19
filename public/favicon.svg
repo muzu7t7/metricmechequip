@@ -1,12 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 114 102" fill="none">
-  <!-- Gray M (background layer) -->
-  <path
-    fill="#3A3A3A"
-    d="M4,84 L4,5 L52,48 L100,5 L100,84 L84,84 L84,24 L52,60 L20,24 L20,84 Z"
-  />
-  <!-- Red M (foreground layer, offset down-right) -->
-  <path
-    fill="#CC0000"
-    d="M14,97 L14,17 L62,60 L110,17 L110,97 L94,97 L94,37 L62,73 L30,37 L30,97 Z"
-  />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Background square with rounded corners -->
+  <rect width="64" height="64" rx="12" ry="12" fill="#9E2A2B"/>
+
+  <!-- Stylized "M" letter in white -->
+  <path d="M10 50 L10 14 L22 14 L32 32 L42 14 L54 14 L54 50 L44 50 L44 28 L34 46 L30 46 L20 28 L20 50 Z"
+        fill="#FFFFFF"
+        stroke="#FFFFFF"
+        stroke-width="1"
+        stroke-linejoin="round"/>
+
+  <!-- Thin red line accent at bottom -->
+  <rect x="10" y="54" width="44" height="3" rx="1.5" fill="rgba(255,255,255,0.3)"/>
 </svg>
