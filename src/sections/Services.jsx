@@ -25,6 +25,16 @@ const Services = () => {
       icon: <ShieldCheck size={40} />,
       title: "Quality Assurance",
       desc: "We supply only genuine, certified equipment from trusted manufacturers to ensure long-term reliability."
+    },
+    {
+      icon: <Wrench size={40} />,
+      title: "Custom Fabrication",
+      desc: "Bespoke assembly and crimping of hydraulic and composite hoses tailored to your exact specifications."
+    },
+    {
+      icon: <Clock size={40} />,
+      title: "Scheduled Maintenance",
+      desc: "Scheduled inspection, pressure testing, and replacement services to avoid costly unexpected shutdowns."
     }
   ];
 
