@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import './Sections.css';
-import heroBg from '../assets/hero-bg.jpg';
+import heroBg from '../assets/hero-bg.png';
 
 const Hero = () => {
   return (

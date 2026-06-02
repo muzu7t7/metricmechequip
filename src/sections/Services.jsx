@@ -63,7 +63,8 @@ const Services = () => {
             <ul className="onsite-features">
               <li>✓ 24/7 Emergency Dispatch</li>
               <li>✓ Fully Equipped Mobile Units</li>
-              <li>✓ Certified Expert Technicians</li>
+              <li>✓ Hydraulic & Hose Specialists</li>
+              <li>✓ Onsite Hose Crimping & Assembly</li>
             </ul>
           </div>
           <div className="onsite-image-wrapper">
