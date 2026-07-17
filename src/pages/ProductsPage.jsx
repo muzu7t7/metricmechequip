@@ -103,6 +103,10 @@ const ProductsPage = () => {
         <div className="products-grid-full">
           <AnimatePresence mode="popLayout">
             {filteredProducts.map((product, i) => {
+              // Get stable original index for the SKU reference code
+              const originalIndex = productsData.findIndex(p => p.name === product.name);
+              const skuIndex = originalIndex !== -1 ? originalIndex : i;
+
               // Handle relative paths for local images
               const imgSrc = product.image 
                 ? (product.image.startsWith('http') ? product.image : `${import.meta.env.BASE_URL}${product.image}`)
@@ -135,15 +139,15 @@ const ProductsPage = () => {
                       <button onClick={goToContact} className="btn btn-sm">Inquire Now</button>
                     </div>
                   </div>
-                <div className="product-info">
-                  <span className="category-tag">{product.category}</span>
-                  <h3>{product.name}</h3>
-                  <p className="product-sku">REF: MM-{1000 + i}</p>
-                  <div className="product-footer">
-                    <span className="status">In Stock</span>
-                    <button onClick={goToContact} className="details-btn"><Info size={16} /></button>
+                  <div className="product-info">
+                    <span className="category-tag">{product.category}</span>
+                    <h3>{product.name}</h3>
+                    <p className="product-sku">REF: MM-{1000 + skuIndex}</p>
+                    <div className="product-footer">
+                      <span className="status">In Stock</span>
+                      <button onClick={goToContact} className="details-btn"><Info size={16} /></button>
+                    </div>
                   </div>
-                </div>
                 </motion.div>
               );
             })}

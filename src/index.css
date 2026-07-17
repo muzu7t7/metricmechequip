@@ -31,7 +31,11 @@ html, body {
   background: var(--bg-color);
   line-height: 1.6;
   overflow-x: hidden;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth is intentionally omitted here — it
+     interferes with Android's native fling/momentum scrolling.
+     Smooth scroll for anchor links is handled via JS (scrollIntoView). */
+  -webkit-overflow-scrolling: touch; /* momentum scroll on iOS/Android */
+  touch-action: pan-y;              /* tell the browser this is a vertical scroll surface */
 }
 
 .mechanical-bg-wrapper {
@@ -50,6 +54,16 @@ html, body {
   position: absolute;
   opacity: 0.08;
   filter: grayscale(1) blur(2px);
+  /* will-change on desktop is set in JS via framer-motion style prop */
+}
+
+/* On mobile, remove the blur filter entirely — it forces the GPU
+   to re-rasterize large background images on every scroll frame,
+   which is one of the biggest causes of scroll jank on Android */
+@media (max-width: 768px) {
+  .bg-element {
+    filter: grayscale(1);
+  }
 }
 
 .gear-1 {
@@ -199,5 +213,12 @@ ul {
   }
   .section-title {
     font-size: 2rem;
+  }
+  /* Remove backdrop-filter on mobile — it's GPU-expensive and causes
+     compositing layers to be invalidated on every scroll repaint */
+  .navbar.scrolled .nav-main {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.97);
   }
 }

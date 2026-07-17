@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
+const isMobile = () => window.innerWidth <= 768;
+
 const MainPageParticles = () => {
     const [init, setInit] = useState(false);
 
@@ -29,7 +31,7 @@ const MainPageParticles = () => {
                         value: "transparent",
                     },
                 },
-                fpsLimit: 120,
+                fpsLimit: isMobile() ? 30 : 60,
                 interactivity: {
                     events: {
                         onClick: {
@@ -37,7 +39,9 @@ const MainPageParticles = () => {
                             mode: "push",
                         },
                         onHover: {
-                            enable: true,
+                            // Disable hover on touch/mobile — no hover events fire anyway
+                            // and keeping it enabled causes unnecessary JS work per frame
+                            enable: !isMobile(),
                             mode: "grab",
                         },
                         resize: true,
@@ -72,7 +76,7 @@ const MainPageParticles = () => {
                             default: "bounce",
                         },
                         random: false,
-                        speed: 1,
+                        speed: isMobile() ? 0.5 : 1,
                         straight: false,
                     },
                     number: {
@@ -80,7 +84,8 @@ const MainPageParticles = () => {
                             enable: true,
                             area: 800,
                         },
-                        value: 80,
+                        // Fewer particles on mobile = less canvas redraw work per frame
+                        value: isMobile() ? 25 : 80,
                     },
                     opacity: {
                         value: 0.5,
