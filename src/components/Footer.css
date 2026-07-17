@@ -112,6 +112,23 @@
   align-items: flex-start;
 }
 
+/* Clickable contact links in footer (maps, tel, mailto) */
+.footer-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ccc;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.footer-contact-link:hover,
+.footer-contact-link:active {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
 .footer-contact .text-primary {
   margin-top: 3px;
 }

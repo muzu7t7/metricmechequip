@@ -17,7 +17,12 @@ const Contact = () => {
             viewport={{ once: true }}
             className="contact-info-cards"
           >
-            <div className="info-card">
+            <a
+              href="https://maps.google.com/?q=Al+Jurf+Industrial+2,+Ajman,+UAE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="info-card info-card-link"
+            >
               <div className="icon-wrapper">
                 <MapPin className="text-primary" size={28} />
               </div>
@@ -25,9 +30,12 @@ const Contact = () => {
                 <h4>Our Location</h4>
                 <p>Al Jurf Industrial 2, Ajman, UAE.</p>
               </div>
-            </div>
+            </a>
             
-            <div className="info-card">
+            <a
+              href="tel:+971589013804"
+              className="info-card info-card-link"
+            >
               <div className="icon-wrapper">
                 <Phone className="text-primary" size={28} />
               </div>
@@ -35,9 +43,12 @@ const Contact = () => {
                 <h4>Call Us</h4>
                 <p>+971 58 901 3804</p>
               </div>
-            </div>
+            </a>
             
-            <div className="info-card">
+            <a
+              href="mailto:mechmetric@gmail.com"
+              className="info-card info-card-link"
+            >
               <div className="icon-wrapper">
                 <Mail className="text-primary" size={28} />
               </div>
@@ -45,7 +56,7 @@ const Contact = () => {
                 <h4>Email Us</h4>
                 <p>mechmetric@gmail.com</p>
               </div>
-            </div>
+            </a>
           </motion.div>
           
           <motion.div 

@@ -61,9 +61,21 @@ const Footer = () => {
           <div className="footer-contact">
             <h4>Contact Details</h4>
             <ul>
-              <li><MapPin size={18} className="text-primary" /> Al Jurf Industrial 2, Ajman, UAE.</li>
-              <li><Phone size={18} className="text-primary" /> +971 58 901 3804</li>
-              <li><Mail size={18} className="text-primary" /> mechmetric@gmail.com</li>
+              <li>
+                <a href="https://maps.google.com/?q=Al+Jurf+Industrial+2,+Ajman,+UAE" target="_blank" rel="noopener noreferrer" className="footer-contact-link">
+                  <MapPin size={18} className="text-primary" /> Al Jurf Industrial 2, Ajman, UAE.
+                </a>
+              </li>
+              <li>
+                <a href="tel:+971589013804" className="footer-contact-link">
+                  <Phone size={18} className="text-primary" /> +971 58 901 3804
+                </a>
+              </li>
+              <li>
+                <a href="mailto:mechmetric@gmail.com" className="footer-contact-link">
+                  <Mail size={18} className="text-primary" /> mechmetric@gmail.com
+                </a>
+              </li>
               <li><Clock size={18} className="text-primary" /> Mon – Fri: 8 AM – 8 PM<br/>Sun: 8 AM - 1 PM</li>
             </ul>
           </div>

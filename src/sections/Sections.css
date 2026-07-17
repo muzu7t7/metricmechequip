@@ -301,6 +301,25 @@
   transition: all 0.4s ease;
 }
 
+/* When .info-card is used as an <a> tag (clickable link card) */
+a.info-card-link {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* remove grey flash on Android tap */
+}
+
+a.info-card-link h4,
+a.info-card-link p {
+  color: inherit;
+}
+
+a.info-card-link:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
 .info-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(204,0,0,0.15);
