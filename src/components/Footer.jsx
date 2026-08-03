@@ -62,7 +62,7 @@ const Footer = () => {
             <h4>Contact Details</h4>
             <ul>
               <li>
-                <a href="https://www.google.com/maps/place/Metric+Mechanical+Equipment+spare+parts+trading+company+llc." target="_blank" rel="noopener noreferrer" className="footer-contact-link">
+                <a href="https://www.google.com/maps/search/?api=1&query=Metric+Mechanical+Equipment+spare+parts+trading+company+llc" target="_blank" rel="noopener noreferrer" className="footer-contact-link">
                   <MapPin size={18} className="text-primary" /> Al Jurf Industrial 2, Ajman, UAE.
                 </a>
               </li>

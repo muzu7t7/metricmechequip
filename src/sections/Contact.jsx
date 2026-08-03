@@ -18,7 +18,7 @@ const Contact = () => {
             className="contact-info-cards"
           >
             <a
-              href="https://www.google.com/maps/place/Metric+Mechanical+Equipment+spare+parts+trading+company+llc."
+              href="https://www.google.com/maps/search/?api=1&query=Metric+Mechanical+Equipment+spare+parts+trading+company+llc"
               target="_blank"
               rel="noopener noreferrer"
               className="info-card info-card-link"
