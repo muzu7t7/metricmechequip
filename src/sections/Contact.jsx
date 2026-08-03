@@ -18,7 +18,7 @@ const Contact = () => {
             className="contact-info-cards"
           >
             <a
-              href="https://maps.google.com/?q=Al+Jurf+Industrial+2,+Ajman,+UAE"
+              href="https://www.google.com/maps/place/Metric+Mechanical+Equipment+spare+parts+trading+company+llc."
               target="_blank"
               rel="noopener noreferrer"
               className="info-card info-card-link"
@@ -85,6 +85,33 @@ const Contact = () => {
             </form>
           </motion.div>
         </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="map-embed-container"
+          style={{ 
+            marginTop: '40px', 
+            borderRadius: '24px', 
+            overflow: 'hidden', 
+            boxShadow: '0 10px 30px rgba(0,0,0,0.05)', 
+            border: '1px solid var(--border-color)',
+            height: '360px'
+          }}
+        >
+          <iframe 
+            title="Metric Mechanical Location Map"
+            src="https://maps.google.com/maps?q=Metric+Mechanical+Equipment+spare+parts+trading+company+llc.&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen="" 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </motion.div>
       </div>
     </section>
   );
