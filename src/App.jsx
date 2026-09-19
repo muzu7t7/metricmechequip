@@ -20,10 +20,7 @@ function HomePage() {
     if (location.state?.scrollTo) {
       const el = document.getElementById(location.state.scrollTo);
       if (el) {
-        // Small delay to ensure the section is rendered
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 100);
       }
     }
   }, [location.state]);
@@ -40,18 +37,28 @@ function HomePage() {
   );
 }
 
+function AppContent() {
+  return (
+    <>
+      <MechanicalBackground />
+      <Navbar />
+      <Routes>
+        <Route path="/"         element={<HomePage />}     />
+        <Route path="/products" element={<ProductsPage />} />
+        {/* Admin panel disabled — products are managed via src/data/products.json.
+            To re-enable: import AdminPage from './pages/AdminPage' and add a /admin route. */}
+      </Routes>
+      <Footer />
+    </>
+  );
+}
+
 function App() {
   const basename = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
   return (
     <Router basename={basename}>
-      <MechanicalBackground />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<ProductsPage />} />
-      </Routes>
-      <Footer />
+      <AppContent />
     </Router>
   );
 }

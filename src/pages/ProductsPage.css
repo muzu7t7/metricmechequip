@@ -244,8 +244,21 @@
   height: 3rem; /* Allow for 2 lines */
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.product-description {
+  font-size: 0.82rem;
+  color: #666;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
 }
 
 .product-sku {
@@ -279,6 +292,14 @@
   height: 8px;
   background: #27ae60;
   border-radius: 50%;
+}
+
+.status.out-of-stock {
+  color: #999;
+}
+
+.status.out-of-stock::before {
+  background: #ccc;
 }
 
 .details-btn {
