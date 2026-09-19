@@ -7,7 +7,7 @@ import rawProducts from './products.json';
 //   category     (required) string — any value; new categories appear in the filter automatically
 //   description  (optional) string
 //   inStock      (optional) boolean, defaults to true
-//   image        (optional) URL, or a path inside /public, e.g. "products/hose.jpg"
+//   image        (optional) URL, or a path inside /public, e.g. "product-images/hose.jpg"
 //   sku          (optional) string, overrides the auto-generated "MM-1000" reference
 //
 // Auto-generated SKUs follow array position, so append new products at the END

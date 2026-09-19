@@ -28,4 +28,4 @@ dist.zip
 product-photos-original/
 
 # Generated SVG placeholder illustrations (see scripts/generate-product-images.py)
-public/products/*.svg
+public/product-images/*.svg

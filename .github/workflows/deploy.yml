@@ -29,6 +29,11 @@ jobs:
       - name: Build
         run: GITHUB_PAGES=true npm run build
 
+      # GitHub Pages has no server-side routing: serve the app for any unknown path
+      # (e.g. /products) so direct links and refreshes work with React Router.
+      - name: SPA fallback
+        run: cp dist/index.html dist/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

@@ -4,7 +4,7 @@ How to use:
 
 1. Generate one image per product with an image model (Midjourney, DALL·E / ChatGPT, Adobe Firefly, Gemini, ...).
    Paste the **style suffix** after each product prompt. Use 4:3 landscape (e.g. `--ar 4:3` in Midjourney).
-2. Save each result in `public/products/` using the filename shown (`.jpg`, `.jpeg`, `.png` or `.webp`).
+2. Save each result in `public/product-images/` using the filename shown (`.jpg`, `.jpeg`, `.png` or `.webp`).
    Keep them around 1200 px wide and under ~300 KB each.
 3. Run `python scripts/generate-product-images.py`. Products that have a photo use it;
    the others keep their SVG illustration.

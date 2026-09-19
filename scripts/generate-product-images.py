@@ -1,4 +1,4 @@
-"""Generates the product illustrations in public/products/*.svg and points
+"""Generates the product illustrations in public/product-images/*.svg and points
 each entry of src/data/products.json at its image.
 
 Run from the project root:  python scripts/generate-product-images.py
@@ -9,7 +9,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / 'public' / 'products'
+OUT = ROOT / 'public' / 'product-images'
 JSON_PATH = ROOT / 'src' / 'data' / 'products.json'
 
 PHOTO_EXTS = ('.webp', '.jpg', '.jpeg', '.png')
@@ -498,7 +498,7 @@ def slug(name):
 
 
 def compress_photos():
-    """Turns any JPG/PNG dropped into public/products/ into a resized WebP.
+    """Turns any JPG/PNG dropped into public/product-images/ into a resized WebP.
     The original is moved to product-photos-original/ (outside public/, so it is not deployed)."""
     raws = [f for f in OUT.iterdir() if f.suffix.lower() in RAW_EXTS]
     if not raws:
@@ -528,14 +528,14 @@ def main():
     assert len(products) == len(ART), f'{len(products)} products but {len(ART)} illustrations'
     for p, fn in zip(products, ART):
         base = slug(p['name'])
-        # A real photo dropped into public/products/ (see scripts/product-image-prompts.md) wins over the SVG.
+        # A real photo dropped into public/product-images/ (see scripts/product-image-prompts.md) wins over the SVG.
         photo = next((f for ext in PHOTO_EXTS if (f := OUT / f'{base}{ext}').exists()), None)
         if photo:
-            p['image'] = f'products/{photo.name}'
+            p['image'] = f'product-images/{photo.name}'
             continue
         name = f'{base}.svg'
         (OUT / name).write_text(wrap(fn()), encoding='utf-8')
-        p['image'] = f'products/{name}'
+        p['image'] = f'product-images/{name}'
     # keep the file's compact one-object-per-line style
     rows = ',\n'.join(
         '  { ' + ', '.join(f'{json.dumps(k)}: {json.dumps(v, ensure_ascii=False)}' for k, v in p.items()) + ' }'
