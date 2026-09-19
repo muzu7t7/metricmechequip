@@ -92,25 +92,36 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
           className="map-embed-container"
-          style={{ 
-            marginTop: '40px', 
-            borderRadius: '24px', 
-            overflow: 'hidden', 
-            boxShadow: '0 10px 30px rgba(0,0,0,0.05)', 
-            border: '1px solid var(--border-color)',
-            height: '360px'
-          }}
+          style={{ marginTop: '40px' }}
         >
-          <iframe 
+          {/* Rounded corners live on the iframe itself: clipping an iframe with
+              overflow:hidden inside an animated (transformed) parent renders blank in some Edge/Chromium builds. */}
+          <iframe
             title="Metric Mechanical Location Map"
-            src="https://maps.google.com/maps?q=Metric+Mechanical+Equipment+spare+parts+trading+company+llc.&t=&z=15&ie=UTF8&iwloc=&output=embed"
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen="" 
-            loading="lazy" 
+            src="https://www.google.com/maps?q=Metric+Mechanical+Equipment+spare+parts+trading+company+llc.&z=15&hl=en&output=embed"
+            width="100%"
+            height="360"
+            style={{
+              display: 'block',
+              border: '1px solid var(--border-color)',
+              borderRadius: '24px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+            }}
+            allowFullScreen
+            loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
+          <p style={{ textAlign: 'center', marginTop: '14px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+            Map not loading?{' '}
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Metric+Mechanical+Equipment+spare+parts+trading+company+llc"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'var(--primary)', fontWeight: 600 }}
+            >
+              Open in Google Maps ↗
+            </a>
+          </p>
         </motion.div>
       </div>
     </section>
