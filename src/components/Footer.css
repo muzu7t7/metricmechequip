@@ -112,6 +112,20 @@
   align-items: flex-start;
 }
 
+/* "Call Us" entry: icon beside a stacked list of branch numbers */
+.footer-branches {
+  align-items: flex-start;
+}
+
+.footer-branches ul {
+  gap: 6px;
+}
+
+.footer-branches .footer-contact-link {
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
 /* Clickable contact links in footer (maps, tel, mailto) */
 .footer-contact-link {
   display: flex;

@@ -345,6 +345,45 @@ a.info-card-link:active {
   line-height: 1.5;
 }
 
+/* "Call Us" card: one row per branch instead of a single number */
+.branches-card {
+  cursor: default;
+}
+
+.branches-list {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.branches-list a {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.branches-list a:hover .branch-number {
+  color: var(--primary);
+}
+
+.branch-label {
+  flex: 0 0 auto;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  min-width: 78px;
+}
+
+.branch-number {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
 .contact-form-container {
   background: #fff;
   padding: 40px;

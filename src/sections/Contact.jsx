@@ -1,7 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, MessageCircle } from 'lucide-react';
 import './Sections.css';
+
+const BRANCHES = [
+  { label: 'Ajman',     tel: '+971589013804', display: '+971 58 901 3804' },
+  { label: 'Dubai',     tel: '+971523659736', display: '+971 52 365 9736' },
+  { label: 'Abu Dhabi', tel: '+971555312201', display: '+971 55 531 2201' },
+  { label: 'Admin',     tel: '+971522957739', display: '+971 52 295 7739' },
+];
+
+const WHATSAPP_NUMBER = '971523659736';
 
 const Contact = () => {
   return (
@@ -32,19 +41,40 @@ const Contact = () => {
               </div>
             </a>
             
-            <a
-              href="tel:+971589013804"
-              className="info-card info-card-link"
-            >
+            <div className="info-card branches-card">
               <div className="icon-wrapper">
                 <Phone className="text-primary" size={28} />
               </div>
               <div>
                 <h4>Call Us</h4>
-                <p>+971 58 901 3804</p>
+                <ul className="branches-list">
+                  {BRANCHES.map((b) => (
+                    <li key={b.label}>
+                      <a href={`tel:${b.tel}`}>
+                        <span className="branch-label">{b.label}</span>
+                        <span className="branch-number">{b.display}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="info-card info-card-link"
+            >
+              <div className="icon-wrapper">
+                <MessageCircle className="text-primary" size={28} />
+              </div>
+              <div>
+                <h4>WhatsApp</h4>
+                <p>+971 52 365 9736</p>
               </div>
             </a>
-            
+
             <a
               href="mailto:mechmetric@gmail.com"
               className="info-card info-card-link"
