@@ -190,8 +190,11 @@
 
 
 .service-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
+  /* Solid, not blurred-glass: backdrop-filter forces a recompute every
+     scroll frame (this ran on all 6 cards at once), and this is the
+     tallest section on the page, so it was the main source of scroll
+     jank. Mobile already dropped it below; now desktop matches. */
+  background: #fff;
   padding: 40px 30px;
   border-radius: 24px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05), 0 1px 1px rgba(255,255,255,0.8) inset;
@@ -604,12 +607,5 @@ a.info-card-link:active {
   }
   .onsite-content h3 {
     font-size: 1.8rem;
-  }
-  /* Remove backdrop-filter on service cards on mobile —
-     it creates expensive compositor layers during scroll */
-  .service-card {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    background: #fff;
   }
 }

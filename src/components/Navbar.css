@@ -17,9 +17,11 @@
 }
 
 .navbar.scrolled .nav-main {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* Solid instead of blurred-glass: backdrop-filter on a fixed element forces
+     the browser to recompute the blur every frame the page scrolls behind it
+     (what it's sampling is always changing), which was a real cause of scroll
+     jank. Opaque enough at 0.97 that the blur isn't missed. */
+  background: rgba(255, 255, 255, 0.97);
   padding: 10px 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
