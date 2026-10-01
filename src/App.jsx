@@ -9,6 +9,7 @@ import Contact from './sections/Contact';
 
 import MechanicalBackground from './components/MechanicalBackground';
 import MainPageParticles from './components/MainPageParticles';
+import WhatsAppButton from './components/WhatsAppButton';
 
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import ProductsPage from './pages/ProductsPage';
@@ -49,6 +50,7 @@ function AppContent() {
             To re-enable: import AdminPage from './pages/AdminPage' and add a /admin route. */}
       </Routes>
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }

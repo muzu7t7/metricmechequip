@@ -1,16 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Send, MessageCircle } from 'lucide-react';
+import { BRANCHES, WHATSAPP_LINK, WHATSAPP_DISPLAY } from '../data/contact';
 import './Sections.css';
-
-const BRANCHES = [
-  { label: 'Ajman',     tel: '+971589013804', display: '+971 58 901 3804' },
-  { label: 'Dubai',     tel: '+971523659736', display: '+971 52 365 9736' },
-  { label: 'Abu Dhabi', tel: '+971555312201', display: '+971 55 531 2201' },
-  { label: 'Admin',     tel: '+971522957739', display: '+971 52 295 7739' },
-];
-
-const WHATSAPP_NUMBER = '971523659736';
 
 const Contact = () => {
   return (
@@ -61,7 +53,7 @@ const Contact = () => {
             </div>
 
             <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="info-card info-card-link"
@@ -71,7 +63,7 @@ const Contact = () => {
               </div>
               <div>
                 <h4>WhatsApp</h4>
-                <p>+971 52 365 9736</p>
+                <p>{WHATSAPP_DISPLAY}</p>
               </div>
             </a>
 

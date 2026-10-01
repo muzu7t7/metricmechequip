@@ -3,15 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import './Footer.css';
 import logo from '../assets/logo.png';
 import { MapPin, Phone, Mail, Clock, ArrowRight, MessageCircle } from 'lucide-react';
-
-const BRANCHES = [
-  { label: 'Ajman',     tel: '+971589013804', display: '+971 58 901 3804' },
-  { label: 'Dubai',     tel: '+971523659736', display: '+971 52 365 9736' },
-  { label: 'Abu Dhabi', tel: '+971555312201', display: '+971 55 531 2201' },
-  { label: 'Admin',     tel: '+971522957739', display: '+971 52 295 7739' },
-];
-
-const WHATSAPP_NUMBER = '971523659736';
+import { BRANCHES, WHATSAPP_LINK, WHATSAPP_DISPLAY } from '../data/contact';
 
 const Footer = () => {
   const location = useLocation();
@@ -88,8 +80,8 @@ const Footer = () => {
                 </ul>
               </li>
               <li>
-                <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="footer-contact-link">
-                  <MessageCircle size={18} className="text-primary" /> WhatsApp: +971 52 365 9736
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="footer-contact-link">
+                  <MessageCircle size={18} className="text-primary" /> WhatsApp: {WHATSAPP_DISPLAY}
                 </a>
               </li>
               <li>
