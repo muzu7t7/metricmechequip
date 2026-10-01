@@ -1,11 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import WhatsAppIcon from '../components/icons/WhatsAppIcon';
 import { BRANCHES, WHATSAPP_LINK, WHATSAPP_DISPLAY } from '../data/contact';
 import './Sections.css';
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdekvbaa';
+
 const Contact = () => {
+  // 'idle' | 'submitting' | 'success' | 'error'
+  const [status, setStatus] = useState('idle');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    setStatus('submitting');
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
+
   return (
     <section id="contact" className="section contact-section">
       <div className="container">
@@ -89,22 +117,37 @@ const Contact = () => {
             transition={{ delay: 0.2 }}
             className="contact-form-container"
           >
-            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+            <form className="contact-form" onSubmit={handleSubmit}>
+              {/* Honeypot: hidden from real visitors, bots fill every field. Formspree drops the submission if this is non-empty. */}
+              <input type="text" name="_gotcha" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
+
               <div className="form-group">
-                <input type="text" placeholder="Your Name" required />
+                <input type="text" name="name" placeholder="Your Name" required disabled={status === 'submitting'} />
               </div>
               <div className="form-group">
-                <input type="email" placeholder="Your Email" required />
+                <input type="email" name="email" placeholder="Your Email" required disabled={status === 'submitting'} />
               </div>
               <div className="form-group">
-                <input type="text" placeholder="Subject / Part Number" />
+                <input type="text" name="subject" placeholder="Subject / Part Number" disabled={status === 'submitting'} />
               </div>
               <div className="form-group">
-                <textarea placeholder="Your Message or Request Details..." rows="5" required></textarea>
+                <textarea name="message" placeholder="Your Message or Request Details..." rows="5" required disabled={status === 'submitting'}></textarea>
               </div>
-              <button type="submit" className="btn btn-full">
-                Send Message <Send size={16} />
+
+              <button type="submit" className="btn btn-full" disabled={status === 'submitting'}>
+                {status === 'submitting' ? 'Sending…' : <>Send Message <Send size={16} /></>}
               </button>
+
+              {status === 'success' && (
+                <p className="form-status form-status-success">
+                  <CheckCircle size={16} /> Thank you! Your message has been sent — we'll get back to you shortly.
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="form-status form-status-error">
+                  <AlertCircle size={16} /> Something went wrong. Please try again, or reach us directly via phone or WhatsApp.
+                </p>
+              )}
             </form>
           </motion.div>
         </div>
