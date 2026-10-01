@@ -122,6 +122,14 @@ ul {
   padding: var(--spacing-section) 0;
 }
 
+/* The navbar is fixed, so scrolling straight to a section (nav links,
+   the cross-page scrollTo in App.jsx) would otherwise land its heading
+   right under it. 110px clears the navbar in both its ~79px and
+   ~95px-tall (mobile, wrapped logo) states. */
+section[id] {
+  scroll-margin-top: 110px;
+}
+
 .section-title {
   text-align: center;
   font-size: 2.75rem;

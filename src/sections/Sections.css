@@ -360,9 +360,12 @@ a.info-card-link:active {
 }
 
 .branches-list a {
+  /* Stacked (label above number) rather than side-by-side: on a narrow
+     one-column card a fixed-width label left too little room for the
+     number, wrapping it across 2-3 lines. */
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  flex-direction: column;
+  gap: 1px;
   text-decoration: none;
   color: inherit;
 }
@@ -372,11 +375,11 @@ a.info-card-link:active {
 }
 
 .branch-label {
-  flex: 0 0 auto;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   color: var(--text-main);
-  min-width: 78px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
 }
 
 .branch-number {

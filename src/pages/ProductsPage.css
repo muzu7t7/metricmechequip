@@ -147,6 +147,21 @@
   .search-box {
     max-width: none;
   }
+  .filter-group {
+    gap: 10px;
+  }
+  /* A <select> sizes its closed box to its widest *option*, not the
+     current selection — "Fittings & Couplings" as an option made this
+     ~191px wide even while showing "All", overflowing the page's right
+     edge. flex + min-width:0 lets both selects share the row instead. */
+  .filter-select {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 .products-grid-full {
