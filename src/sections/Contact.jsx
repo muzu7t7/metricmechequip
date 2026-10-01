@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Send, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import WhatsAppIcon from '../components/icons/WhatsAppIcon';
 import { BRANCHES, WHATSAPP_LINK, WHATSAPP_DISPLAY } from '../data/contact';
 import './Sections.css';
 
@@ -59,7 +60,7 @@ const Contact = () => {
               className="info-card info-card-link"
             >
               <div className="icon-wrapper">
-                <MessageCircle className="text-primary" size={28} />
+                <WhatsAppIcon className="text-primary" size={28} />
               </div>
               <div>
                 <h4>WhatsApp</h4>

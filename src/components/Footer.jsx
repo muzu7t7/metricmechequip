@@ -2,7 +2,8 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Footer.css';
 import logo from '../assets/logo.png';
-import { MapPin, Phone, Clock, ArrowRight, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Clock, ArrowRight } from 'lucide-react';
+import WhatsAppIcon from './icons/WhatsAppIcon';
 import { BRANCHES, WHATSAPP_LINK, WHATSAPP_DISPLAY } from '../data/contact';
 
 const Footer = () => {
@@ -81,7 +82,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="footer-contact-link">
-                  <MessageCircle size={18} className="text-primary" /> WhatsApp: {WHATSAPP_DISPLAY}
+                  <WhatsAppIcon size={18} className="text-primary" /> WhatsApp: {WHATSAPP_DISPLAY}
                 </a>
               </li>
               <li><Clock size={18} className="text-primary" /> Mon – Fri: 8 AM – 8 PM<br/>Sun: 8 AM - 1 PM</li>

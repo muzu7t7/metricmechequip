@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageCircle } from 'lucide-react';
+import WhatsAppIcon from './icons/WhatsAppIcon';
 import { WHATSAPP_LINK, WHATSAPP_DISPLAY } from '../data/contact';
 import './WhatsAppButton.css';
 
@@ -20,7 +20,7 @@ const WhatsAppButton = () => (
     whileTap={{ scale: 0.94 }}
   >
     <span className="whatsapp-fab-ping" aria-hidden="true" />
-    <MessageCircle size={28} strokeWidth={2.2} />
+    <WhatsAppIcon size={28} />
   </motion.a>
 );
 
